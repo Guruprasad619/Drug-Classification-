@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+    .banner {
+        width: 100%;
+        height: 500px;
+        background-image: url('https://www.outsourcing-pharma.com/var/wrbm_gb_food_pharma/storage/images/publications/pharmaceutical-science/outsourcing-pharma.com/headlines/preclinical-research/platform-designed-to-accelerate-drug-discovery-development/11596587-1-eng-GB/Platform-designed-to-accelerate-drug-discovery-development.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+    }
+
+    .content-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+        margin-top: 20px; /* Creates space between the banner and the content */
+    }
+
+    .card {
+        width: 500px; /* Two cards per row */
+        height: 200 px ;
+        margin: 20px;
+        padding: 80px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        
+    }
+
+    .card-full {
+        width: 60%; /* Centers the last card */
+        margin: 20px auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center; /* Centers the content inside */
+    }
+
+    h1, h2 {
+        color: #333;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        margin: 0; /* Ensure no extra margins around the footer */
+        width: 100%; /* Make sure the footer spans the full width */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+    
+</style>
+
+<div class="banner"></div>
+
+
+<h1><center>Welcome to Drug Classification</center></h1>
+
+<div class="content-container">
+    <div class="card">
+        <h2>Overview</h2>
+        <p>Our drug classification model is designed to predict the most suitable drug for a patient based on their individual characteristics. This model is a demonstration of how machine learning can be applied in the field of personalized medicine to assist healthcare providers in making informed decisions about drug prescriptions.</p>
+    </div>
+
+    <div class="card">
+        <h2>Inputs</h2>
+        <p>To get a prediction, users need to provide the following information:</p>
+        <ul>
+            <li>Age: The patient's age in years</li>
+            <li>Sex: The patient's gender (Male or Female)</li>
+            <li>Blood Pressure: Categorized as High, Low, or Normal</li>
+            <li>Cholesterol Level: Categorized as High or Normal</li>
+            <li>Na_to_K Ratio: The ratio of Sodium to Potassium in the patient's blood</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>How It Works</h2>
+        <p>Our model uses a K-Nearest Neighbors (KNN) algorithm to make predictions. Here's a simplified explanation of the process:</p>
+        <ol>
+            <li>The model is trained on a dataset of 200 patient records, each with known characteristics and the drug that was effective for them.</li>
+            <li>When a new patient's data is input, the model compares it to the known cases in the dataset.</li>
+            <li>It identifies the most similar cases (nearest neighbors) based on the input characteristics.</li>
+            <li>The model then predicts the drug that was most effective for these similar cases.</li>
+            <li>The prediction is one of five drug types: DrugA, DrugB, DrugC, DrugX, or DrugY.</li>
+        </ol>
+    </div>
+
+    <div class="card">
+        <h2>Applications</h2>
+        <p>While this model is a simplified demonstration, similar approaches in personalized medicine can have various applications:</p>
+        <ul>
+            <li>Personalized Treatment: Helping healthcare providers tailor medication choices to individual patient profiles.</li>
+            <li>Clinical Decision Support: Assisting in the decision-making process by providing data-driven suggestions.</li>
+            <li>Research: Identifying patterns in drug effectiveness across different patient demographics.</li>
+            <li>Patient Education: Helping patients understand how their individual characteristics might influence treatment options.</li>
+        </ul>
+    </div>
+
+    <div class="card-full">
+        <h2>Important Note</h2>
+        <p>This model is for educational purposes only and should not be used for actual medical decisions. In real-world applications, much more rigorous testing, validation, and regulatory approval would be required. Always consult with qualified healthcare professionals for medical advice and treatment decisions.</p>
+    </div>
+</div>
+
+<footer style="background-color: #333; color: white; text-align: center; padding: 10px 0;">
+    <p>&copy; 2024 - Guruprasad G M . All Rights Reserved.</p>
+</footer>
+
+{% endblock %}

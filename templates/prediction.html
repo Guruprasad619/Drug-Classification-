@@ -1,0 +1,222 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+    .banner {
+        width: 100%;
+        height: 500px;
+        background-image: url('https://scitechdaily.com/images/Artificial-Intelligence-AI-Technology-Drug-Discovery.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat; /* Prevents repetition of the background image */
+        background-attachment: fixed; /* Keeps the background fixed in place */
+        margin: 0;
+        padding: 0;
+    }
+    
+    
+    .form-card {
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 20px;
+        border-radius: 15px;
+        max-width: 500px;
+        margin: 0 auto;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        margin-top: 40px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    
+    input, select {
+        width: 100%;
+        padding: 8px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.7);
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px; /* Increase font size */
+    }
+    
+    select option {
+        font-size: 16px; /* Set font size for the options */
+        padding: 5px;    /* Increase padding for options */
+    }
+    
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        padding : 10px;
+    }
+    
+    input[type="submit"], input[type="reset"] {
+        width: calc(50% - 10px);
+        background-color: darkblue;
+        color: white;
+        border: none;
+        cursor: pointer;
+       
+    }
+    
+    input[type="submit"]:hover, input[type="reset"]:hover {
+        background-color: red;
+        
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 60px;
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .close {
+        color: red;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: darkred;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .modal-result {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        margin: 0; /* Ensure no extra margins around the footer */
+        width: 100%; /* Make sure the footer spans the full width */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        margin-top: 50px;
+    }
+</style>
+
+<div class="banner"></div>
+ 
+<h1><center>This model predicts the best drug for a patient based on their characteristics.</center></h1>
+
+<div class="form-card">
+    <h1><center>Drug Prediction</center></h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required min="1" max="100">
+        </div>
+
+        <div class="form-group">
+            <label for="sex">Sex:</label>
+            <select id="sex" name="sex" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="bp">Blood Pressure:</label>
+            <select id="bp" name="bp" required>
+                <option value="HIGH">High</option>
+                <option value="LOW">Low</option>
+                <option value="NORMAL">Normal</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="chol">Cholesterol:</label>
+            <select id="chol" name="chol" required>
+                <option value="HIGH">High</option>
+                <option value="NORMAL">Normal</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="na">Na_to_K Ratio:</label>
+            <input type="number" step="0.01" id="na" name="na" required>
+        </div>
+
+        <div class="button-group">
+            <input type="submit" value="Predict">
+            <input type="reset" value="Clear">
+        </div>
+    </form>
+</div>
+
+<footer style="background-color: #333; color: white; text-align: center; padding: 10px 0;">
+    <p>&copy; 2024 - Guruprasad G M . All Rights Reserved.</p>
+</footer>
+
+{% if result %}
+<div id="resultModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Predicted Drug</h2>
+        <div class="modal-result">{{ result }}</div>
+    </div>
+</div>
+
+
+
+<script>
+    // Show the modal
+    var modal = document.getElementById("resultModal");
+    var span = document.getElementById("closeModal");
+
+    modal.style.display = "block";
+
+    // Close the modal when the user clicks on the (x)
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Close the modal when the user clicks anywhere outside of the modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Remove the result from the DOM after displaying it
+    window.addEventListener('load', function() {
+        history.replaceState({}, document.title, window.location.pathname);
+    });
+</script>
+
+
+
+{% endif %}
+{% endblock %}
