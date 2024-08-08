@@ -50,6 +50,8 @@ your_project/
 
 ## Vedio Preview
 
+Watch the video preview of the project. click on the "View raw" link after clicking the below thumbnail. vedio will be downloaded
+
 [![Video](https://img.youtube.com/vi/your-thumbnail-id/0.jpg)](https://github.com/Guruprasad619/Drug-Classification-/blob/master/vedio.mp4)
 
 
