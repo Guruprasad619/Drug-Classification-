@@ -48,6 +48,10 @@ your_project/
 5. The `prediction.html` template allows users to input the patient's characteristics, and the `predict_drug()` function in `model.py` is used to make the prediction based on the input data.
 6. The predicted drug is displayed on the `prediction.html` page.
 
+## Vedio Preview
+
+[![Video](https://img.youtube.com/vi/your-thumbnail-id/0.jpg)](your-video-file.mp4)
+
 
 ## Important Note
 This model is for educational purposes only and should not be used for actual medical decisions. In real-world applications, much more rigorous testing, validation, and regulatory approval would be required. Always consult with qualified healthcare professionals for medical advice and treatment decisions.
