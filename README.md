@@ -50,7 +50,7 @@ your_project/
 
 ## Vedio Preview
 
-[![Video](https://img.youtube.com/vi/your-thumbnail-id/0.jpg)](your-video-file.mp4)
+[![Video](https://img.youtube.com/vi/your-thumbnail-id/0.jpg)](vedio.mp4)
 
 
 ## Important Note
