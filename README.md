@@ -50,7 +50,7 @@ your_project/
 
 ## Vedio Preview
 
-[![Video](https://img.youtube.com/vi/your-thumbnail-id/0.jpg)](vedio.mp4)
+[![Video](https://img.youtube.com/vi/your-thumbnail-id/0.jpg)](https://github.com/Guruprasad619/Drug-Classification-/blob/master/vedio.mp4)
 
 
 ## Important Note
