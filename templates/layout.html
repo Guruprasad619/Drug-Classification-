@@ -9,10 +9,34 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding:0;
-            width:100%;
-            height:100%;
-            background-image: linear-gradient(147deg, transparent 0%, transparent 8%,rgba(63, 106, 202,0.08) 8%, rgba(63, 106, 202,0.08) 46%,transparent 46%, transparent 100%),linear-gradient(107deg, transparent 0%, transparent 21%,rgba(63, 106, 202,0.08) 21%, rgba(63, 106, 202,0.08) 53%,transparent 53%, transparent 100%),linear-gradient(288deg, transparent 0%, transparent 35%,rgba(63, 106, 202,0.08) 35%, rgba(63, 106, 202,0.08) 91%,transparent 91%, transparent 100%),linear-gradient(90deg, rgb(255,255,255),rgb(255,255,255));
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(147deg, transparent 0%, transparent 8%, rgba(63, 106, 202, 0.08) 8%, rgba(63, 106, 202, 0.08) 46%, transparent 46%, transparent 100%), linear-gradient(107deg, transparent 0%, transparent 21%, rgba(63, 106, 202, 0.08) 21%, rgba(63, 106, 202, 0.08) 53%, transparent 53%, transparent 100%), linear-gradient(288deg, transparent 0%, transparent 35%, rgba(63, 106, 202, 0.08) 35%, rgba(63, 106, 202, 0.08) 91%, transparent 91%, transparent 100%), linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
+        }
+
+        /* Hide content and navbar for mobile devices */
+        .mobile-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            margin: 20px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                display: none !important; /* Add !important to enforce the rule */
+            }
+            nav {
+                display: none !important; /* Add !important to enforce the rule */
+            }
+            .mobile-message {
+                display: block; /* Show mobile message */
+            }
         }
 
         nav {
@@ -72,13 +96,16 @@
     </style>
 </head>
 <body>
+    <div class="mobile-message">
+        This website can only be viewed using a desktop or laptop screen.
+    </div>
+    
     <nav>
         <div class="nav-left">
             <a href="{{ url_for('home') }}">Drug Classification</a>
         </div>
         <div class="nav-right">
             <ul>
-                
                 <li><a href="{{ url_for('home') }}">Home</a></li>
                 <li><a href="{{ url_for('prediction') }}">Prediction</a></li>
             </ul>

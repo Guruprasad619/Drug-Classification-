@@ -3,16 +3,15 @@
 <style>
     .banner {
         width: 100%;
-        height: 500px;
+        height: 500px; /* Ensure the height is fixed */
         background-image: url('https://scitechdaily.com/images/Artificial-Intelligence-AI-Technology-Drug-Discovery.jpg');
-        background-size: cover;
-        background-position: center;
+        background-size: cover; /* Cover the entire area */
+        background-position: center; /* Center the image */
         background-repeat: no-repeat; /* Prevents repetition of the background image */
-        background-attachment: fixed; /* Keeps the background fixed in place */
         margin: 0;
         padding: 0;
+        overflow: hidden; /* Prevent overflow */
     }
-    
     
     .form-card {
         background-color: rgba(255, 255, 255, 0.3);
@@ -36,13 +35,13 @@
     
     input, select {
         width: 100%;
-        padding: 8px;
-        height: 40px;
+        padding: 12px; /* Increase padding for larger input boxes */
+        height: 50px; /* Increase height for larger input boxes */
         background-color: rgba(255, 255, 255, 0.7);
         border: 1px solid #ccc;
         border-radius: 5px;
         box-sizing: border-box;
-        font-size: 16px; /* Increase font size */
+        font-size: 18px; /* Increase font size for better readability */
     }
     
     select option {
@@ -54,7 +53,7 @@
         display: flex;
         justify-content: space-between;
         margin-top: 10px;
-        padding : 10px;
+        padding: 10px;
     }
     
     input[type="submit"], input[type="reset"] {
@@ -63,12 +62,10 @@
         color: white;
         border: none;
         cursor: pointer;
-       
     }
     
     input[type="submit"]:hover, input[type="reset"]:hover {
         background-color: red;
-        
     }
 
     /* Modal Styles */
@@ -115,6 +112,7 @@
         font-weight: bold;
         margin-top: 5px;
     }
+
     footer {
         background-color: #333;
         color: white;
@@ -189,8 +187,6 @@
     </div>
 </div>
 
-
-
 <script>
     // Show the modal
     var modal = document.getElementById("resultModal");
@@ -215,8 +211,6 @@
         history.replaceState({}, document.title, window.location.pathname);
     });
 </script>
-
-
 
 {% endif %}
 {% endblock %}
